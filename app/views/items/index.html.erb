@@ -20,7 +20,9 @@
         <div class="card-body">
           <ul>
             <% category.items.each do |item| %>
-              <li><%= item.name %></li>
+              <li>
+                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.id), method: "post", remote: true, class: "#{set_button(@list, item.id)}", id: "#{item.name}-button" %>
+              </li>
             <% end %>
           </ul>
         </div>
@@ -41,7 +43,10 @@
         <div class="card-body">
           <ul>
             <% @items.each do |item| %>
-              <li><%= item.name %></li>
+              <li>
+                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.id), method: "post", remote: true, class: "#{set_button(@list, item.id)}", id: "#{item.name}-button" %>
+              </li>
+              <br/>
             <% end %>
           </ul>
         </div>
