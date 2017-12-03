@@ -21,7 +21,7 @@
           <ul>
             <% category.items.each do |item| %>
               <li>
-                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.id), method: "post", remote: true, class: "#{set_button(@list, item.id)}", id: "#{item.name}-button" %>
+                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.slug), method: "post", remote: true, class: "#{set_button(@list, item.slug)}", id: "#{item.name}-button" %>
               </li>
             <% end %>
           </ul>
@@ -44,7 +44,7 @@
           <ul>
             <% @items.each do |item| %>
               <li>
-                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.id), method: "post", remote: true, class: "#{set_button(@list, item.id)}", id: "#{item.name}-button" %>
+                <%= link_to item.name, toggleItem_list_path(@list, item_id: item.slug), method: "post", remote: true, class: "#{set_button(@list, item.slug)}", id: "#{item.name}-button" %>
               </li>
               <br/>
             <% end %>

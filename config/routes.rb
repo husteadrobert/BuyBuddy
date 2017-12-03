@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
 
-  resources :items, except: [:show]
-
   resources :lists, only: [:show] do
     member do
       post :toggleItem
     end
+    resources :items, except: [:show]
+    resources :categories, except: [:show]
   end
 end

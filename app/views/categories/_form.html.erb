@@ -1,0 +1,14 @@
+<% if @category.errors.any? %>
+  <%= render 'shared/display_errors', object: @category %>
+<% end %>
+
+<div class="well">
+  <%= form_for ([@list, @category]) do |f| %>
+    <div class="control-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <br/>
+    <%= f.submit(@category.new_record? ? "Create Category" : "Edit Category", class: 'btn btn-primary') %>
+  <% end %>
+</div>
