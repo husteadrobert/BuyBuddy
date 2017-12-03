@@ -1,0 +1,17 @@
+<ul class="nav nav-fill">
+  <li class="nav-item">
+    <a class="nav-link" href="#">LIST</a>
+  </li>
+  <li class="nav-item">
+    <%= link_to "ALL ITEMS", list_items_path(@list), class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "New Item", new_list_item_path(@list), class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "New Category", new_list_category_path(@list), class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Edit Mode", list_items_path(@list, mode: "edit"), class: "nav-link" %>
+  </li>
+</ul>

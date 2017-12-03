@@ -3,9 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :edit]
 
   def index
-    @items = Item.all
+    @items = Item.all #find_by(userid)
     @categories = Category.all
-    #@list = List.first
   end
 
   def new
