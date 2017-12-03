@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :lists, only: [:show] do
     member do
       post :toggleItem
+      post :clearAll
     end
     resources :items, except: [:show]
     resources :categories, except: [:show]

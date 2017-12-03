@@ -1,0 +1,15 @@
+<ul>
+  <% @list.items.each do |item| %>
+    <li>
+      <%= link_to item.name, toggleItem_list_path(@list, item_id: item.slug), method: "post", remote: true, class: "#{set_button(@list, item.slug)}", id: "#{item.name}-button" %>
+      <% if params[:mode] == "edit" %>
+        <%= link_to "-Edit", edit_list_item_path(@list, item) %>
+      <% end %>
+    </li>
+    <br/>
+  <% end %>
+</ul>
+
+<br/>
+
+<%= link_to "Clear All", clearAll_list_path(@list), method: "post", remove: true, class: "btn btn-primary btn-lg" %>

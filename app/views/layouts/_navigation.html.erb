@@ -1,6 +1,6 @@
 <ul class="nav nav-fill">
   <li class="nav-item">
-    <a class="nav-link" href="#">LIST</a>
+    <%= link_to "LIST", list_path(@list), class: "nav-link" %>
   </li>
   <li class="nav-item">
     <%= link_to "ALL ITEMS", list_items_path(@list), class: "nav-link" %>

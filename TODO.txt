@@ -1,3 +1,7 @@
 Displaying all the buttons layout
 
 Multiple Lists, checking for lists via params
+
+Adjust where links go to after add/update items
+
+Create List View + Ability to remove items from list
