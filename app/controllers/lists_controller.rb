@@ -1,11 +1,12 @@
 class ListsController < ApplicationController
-  before_action :set_list
 
   def show
+    @list = List.find(params[:id])
   end
 
 
   def toggleItem
+    @list = List.find(params[:id])
     @item = Item.find_by(slug: params[:item_id])
     if @list.items.find_by(slug: params[:item_id]).blank?
       @list.items << @item
@@ -19,6 +20,7 @@ class ListsController < ApplicationController
   end
 
   def clearAll
+    @list = List.find(params[:id])
     @list.items.delete_all
     redirect_to list_items_path(@list)
   end

@@ -1,0 +1,17 @@
+<%= render 'shared/content_title', title: "Register a New User" %>
+
+<% if @user.errors.any? %>
+  <%= render 'shared/display_errors', object: @user %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="control-group">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="control-group">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit "Register New User", class: "btn btn-primary" %>
+<% end %>

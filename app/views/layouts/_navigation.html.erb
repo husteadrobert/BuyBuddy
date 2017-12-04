@@ -1,17 +1,29 @@
 <ul class="nav nav-fill">
-  <li class="nav-item">
-    <%= link_to "LIST", list_path(@list), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "ALL ITEMS", list_items_path(@list), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "New Item", new_list_item_path(@list), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "New Category", new_list_category_path(@list), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Edit Mode", list_items_path(@list, mode: "edit"), class: "nav-link" %>
-  </li>
+  <% if logged_in? %>
+    <li class="nav-item">
+      <%= link_to "LIST", list_path(@list), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ALL ITEMS", list_items_path(@list), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "New Item", new_list_item_path(@list), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "New Category", new_list_category_path(@list), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Edit Mode", list_items_path(@list, mode: "edit"), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Logout", logout_path, class: "nav-link" %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to "Login", login_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Register", register_path, class: "nav-link" %>
+    </li>
+  <% end %>
 </ul>
