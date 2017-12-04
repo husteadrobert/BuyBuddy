@@ -4,7 +4,9 @@ class Category < ActiveRecord::Base
   has_many :item_categories
   has_many :items, through: :item_categories
 
-  validates :name, presence: true, uniqueness: true
+  belongs_to :user
 
+  validates :name, presence: true
+  
   set_slugable_column :name
 end

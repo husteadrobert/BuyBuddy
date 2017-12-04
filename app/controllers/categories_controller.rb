@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :require_user
   before_action :set_list
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   def new
     @category = Category.new
@@ -8,7 +9,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    #TODO set List number on Item
+    @category.user_id = current_user.id
     if @category.save
       flash[:notice] = "Category Saved"
       redirect_to list_items_path(@list)
@@ -28,6 +29,11 @@ class CategoriesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    current_user.categories.delete(@category)
+    redirect_back(fallback_location: root_path)
   end
 
   private

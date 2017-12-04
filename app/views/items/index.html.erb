@@ -8,6 +8,7 @@
               <%= category.name %>
               <% if params[:mode] == "edit" %>
                   <%= link_to "Edit", edit_list_category_path(@list, category) %>
+                  <%= link_to "Delete", list_category_path(@list, category), method: "delete" %>
               <% end %>
             </div>
         </h5>
@@ -22,6 +23,7 @@
                 <%= link_to item.name, toggleItem_list_path(@list, item_id: item.slug), method: "post", remote: true, class: "#{set_button(@list, item.slug)}", id: "#{item.name}-button" %>
                 <% if params[:mode] == "edit" %>
                   <%= link_to "-Edit", edit_list_item_path(@list, item) %>
+                  <%= link_to "-Delete", list_item_path(@list, item), method: "delete" %>
                 <% end %>
               </li>
             <% end %>
@@ -50,6 +52,7 @@
                 <%= link_to item.name, toggleItem_list_path(@list, item_id: item.slug), method: "post", remote: true, class: "#{set_button(@list, item.slug)}", id: "#{item.name}-button" %>
                 <% if params[:mode] == "edit" %>
                   <%= link_to "-Edit", edit_list_item_path(@list, item) %>
+                  <%= link_to "-Delete", list_item_path(@list, item), method: "delete" %>
                 <% end %>
               </li>
               <br/>

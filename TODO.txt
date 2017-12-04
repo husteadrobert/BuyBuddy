@@ -1,5 +1,4 @@
 Displaying all the buttons layout
+Mass assign items to categories in Edit mode?
+Adjust where links go to after add/update items?
 
-Multiple Lists, checking for lists via params
-
-Adjust where links go to after add/update items

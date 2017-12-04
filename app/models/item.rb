@@ -5,7 +5,9 @@ class Item < ActiveRecord::Base
   has_many :categories, through: :item_categories
   has_many :lists, through: :item_list
 
-  validates :name, presence: true, uniqueness: true
+  belongs_to :user
+
+  validates :name, presence: true
 
   set_slugable_column :name
 end
