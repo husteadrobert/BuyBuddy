@@ -23,5 +23,9 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    if logged_in?
+      set_list
+      redirect_to list_items_path(@list)
+    end
   end
 end
